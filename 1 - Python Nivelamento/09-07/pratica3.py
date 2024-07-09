@@ -1,3 +1,9 @@
+'''Crie um programa que imprima sequência de fibonacci
+até um um número N digitado pelo usuário.
+Exemplo de entrada: 7
+Saída:
+1, 1, 2, 3, 5, 8, 13,'''
+
 n = int(input('Informe um numero: '))
 
 #inicializa os dois primeiros numeros da sequência
