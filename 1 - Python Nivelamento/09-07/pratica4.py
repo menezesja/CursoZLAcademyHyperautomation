@@ -6,7 +6,7 @@ numeros = []
 for i in range(10):
     n = int(input(f'Informe um numero, posição {i+1}: '))
     numeros += [n]
-    
+
 print('\nNumeros Pares:')
 for n in numeros:
     if n % 2 == 0:
