@@ -5,7 +5,7 @@ numeros = []
 
 for i in range(10):
     n = int(input(f'Informe um numero, posição {i+1}: '))
-    numeros += [n]
+    numeros.append(n)
 
 print('\nNumeros Pares:')
 for n in numeros:
