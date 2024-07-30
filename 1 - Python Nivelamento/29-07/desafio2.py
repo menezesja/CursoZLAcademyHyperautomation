@@ -57,6 +57,6 @@ adicionar_contato(agenda, contato2)
 # Buscando um contato
 contato_encontrado = buscar_contato(agenda, "João")
 if contato_encontrado:
-    print(f"Contato encontrado: {contato_encontrado}")
+    print(f"\nContato encontrado: {contato_encontrado}")
 else:
-    print("Contato não encontrado.")
+    print("\nContato não encontrado.")
