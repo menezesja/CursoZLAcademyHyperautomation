@@ -1,7 +1,7 @@
 vogais =  ('a', 'i', 'u', 'o')
 
 vogais = list(vogais)
-vogais.insert(1, 'e')
+vogais.append('e')
 vogais.sort() #ordenar vogais
 vogais = tuple(vogais)
 
