@@ -22,11 +22,26 @@ def acessar_amazon(bot, produto):
 def extrair_dados_produto(bot):
     count = 1
     while True:
-        count+=1
-        nome_produto = bot.find_element(f'//*[@id="search"]/div[1]/div[1]/div/span[1]/div[1]/div[{count}]/div/div/span/div/div/div/div[2]/div/div/div[1]/h2/a/span', By.XPATH).text
-        valor_produto = bot.find_element(f'//*[@id="search"]/div[1]/div[1]/div/span[1]/div[1]/div[{count}]/div/div/span/div/div/div/div[2]/div/div/div[3]/div[1]/div/div[1]/div/div[1]/a/span/span[2]', By.XPATH).text
+        count += 1
+        try:
+            # Tenta encontrar o nome do produto
+            nome_produto = bot.find_element(f'//*[@id="search"]/div[1]/div[1]/div/span[1]/div[1]/div[{count}]/div/div/span/div/div/div/div[2]/div/div/div[1]/h2/a/span', By.XPATH).text
+        except Exception:
+            #print(f"Produto não encontrado na posição {count}, ignorando...")
+            continue  # Pula para a próxima iteração se o produto não for encontrado
+        
+        try:
+            # Tenta encontrar o valor do produto
+            valor_dolar = bot.find_element(f'//*[@id="search"]/div[1]/div[1]/div/span[1]/div[1]/div[{count}]/div/div/span/div/div/div/div[2]/div/div/div[3]/div[1]/div/div[1]/div/div[1]/a/span/span[2]/span[2]', By.XPATH).text
+            valor_centavos = bot.find_element(f'//*[@id="search"]/div[1]/div[1]/div/span[1]/div[1]/div[{count}]/div/div/span/div/div/div/div[2]/div/div/div[3]/div[1]/div/div[1]/div/div[1]/a/span/span[2]/span[3]', By.XPATH).text
+            valor_produto = f"{valor_dolar},{valor_centavos}"
+        except Exception:
+            #print(f"Valor do produto não encontrado na posição {count}, ignorando...")
+            continue  # Pula para a próxima iteração se o valor não for encontrado
+
         print(f'Nome do Produto: {nome_produto}\n Valor: {valor_produto}')
-        if count == 7:
+        
+        if count == 10:
             break
 
 def main():
