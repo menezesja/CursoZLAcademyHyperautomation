@@ -7,15 +7,33 @@ class Pessoa:
         self.sexo = sexo
 
     def calcular_IMC(self):
+        IMC = self.peso / (self.altura ** 2)
+        return IMC
+    
+    def classificacaoIMC(self):
+        resultadoIMC = self.calcular_IMC()
 
-        IMC = self.peso / (self.altura * self.altura)
+        if(resultadoIMC <= 18.50):
+            return 'Abaixo do peso'
+        elif(resultadoIMC > 18.50 and resultadoIMC <= 24.90):
+            return 'Peso normal'
+        elif(resultadoIMC > 25 and resultadoIMC <= 29.0):
+            return 'Sobrepeso'
+        else:
+            return 'Obesidade'
+        
+    def exibir_resultado(self):
+        imc = self.calcular_IMC()
+        classificacaoIMC = self.classificacaoIMC()
+        print(f'Nome: {self.nome}')
+        print(f'Sexo: {self.sexo}')
+        print(f'IMC: {imc:.2f}')
+        print(f'Classificação do IMC: {classificacaoIMC}')
+        
+nome = input('Digite o nome: ')
+sexo = input('Digite o sexo (M/F): ')
+peso = float(input('Digite o peso em Kg: '))
+altura = float(input('Digite a altura em metros: '))
 
-        print(f'Nome: {self.nome}\nSexo: {self.sexo}\nFaixa de peso: {IMC}')
-
-
-pessoa1 = Pessoa('Alice', 56, 1.54, 'F')
-pessoa2 = Pessoa('Pedro', 80, 1.90, 'M')
-
-
-pessoa1.calcular_IMC()
-pessoa2.calcular_IMC()
+pessoa = Pessoa(nome, peso, altura, sexo)
+pessoa.exibir_resultado()
