@@ -43,8 +43,13 @@ class Livraria:
         for livro in self.livros:
             livro.mostrar_info()
 
-    def devolver_livro(self):
-        ...
+    def devolver_livro(self, titulo):
+        for livro in self.livros:
+            if livro.titulo == titulo:
+                livro.devolver()
+                return
+        print(f'O livro "{titulo}" não foi encontrado na livraria.')
+                
 
 
 livro1 = Livro("Python para Iniciantes", "Autor A")
@@ -61,5 +66,4 @@ livraria.mostrar_inventario()
 
 livraria.emprestar_livro("Python para Iniciantes")
 livraria.devolver_livro("Python para Iniciantes")
-
 livraria.mostrar_inventario()
