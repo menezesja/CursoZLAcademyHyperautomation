@@ -43,12 +43,8 @@ class Livraria:
         for livro in self.livros:
             livro.mostrar_info()
 
-    def devolver_livro(self, titulo):
-        for livro in self.livros:
-            if livro.titulo == titulo:
-                livro.devolver()
-                return
-        print(f'O livro "{titulo}" devolvido.')
+    def devolver_livro(self):
+        ...
 
 
 livro1 = Livro("Python para Iniciantes", "Autor A")
