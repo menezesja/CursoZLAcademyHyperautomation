@@ -44,6 +44,10 @@ def extrair_dados_produto(bot):
         if count == 10:
             break
 
+def executar_api():
+    http=BotHttpPlugin('https://economia.awesomeapi.com.br/last/USD-BRL')
+    return http.get_as_json()
+
 def main():
  
     maestro = BotMaestroSDK.from_sys_args()
@@ -56,7 +60,7 @@ def main():
     bot = WebBot()
 
 
-    bot.headless = False
+    bot.headless = True
 
     bot.browser = Browser.CHROME
 
@@ -65,6 +69,11 @@ def main():
     try:
         acessar_amazon(bot, 'Kindle')
         extrair_dados_produto(bot)
+
+        retornoJSON = executar_api()
+        for item in retornoJSON:
+            for m in item['moeda']:
+                print(m['Máximo'])
 
     except Exception as ex:
         print(ex)

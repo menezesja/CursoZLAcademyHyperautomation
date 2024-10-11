@@ -1,0 +1,32 @@
+Executar o comando:
+a. python -m pip install --upgrade cookiecutter
+
+Executar o comando:
+a. python -m cookiecutter https://github.com/botcity-dev/bot-python-template/archive/v2.zip
+b. Selecionar o template Web
+c. Informe o bot_id
+
+Entrar na pasta do projeto criado
+
+Executar o comando:
+a. conda create --name nome_projeto_robo python=3.10
+b. nome_projeto_robo: igual ao bot_id do projeto para ficar o ambiente
+virtual com a mesma identificação
+
+Selecionar o ambiente virtual com python 3.10
+a. Dentro da pasta do projeto abrir o VS Code: code .
+b. Ctrl + Shift + P
+c. Selecionar: Python: Select Interpreter
+d. Selecionar ambiente virtual correspondente ao projeto com a versão 3.10
+
+No terminal do VS Code, verificar a versão do python:
+a. python --version
+
+Executar o comando, no terminal do VS Code:
+a. pip install -r requirements.txt
+
+Executar o comando, no terminal do VS Code:
+a. pip install webdriver_manager
+
+Executar o comando, no terminal do VS Code:
+a. pip freeze > requirements.txt
