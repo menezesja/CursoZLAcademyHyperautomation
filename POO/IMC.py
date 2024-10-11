@@ -13,11 +13,11 @@ class Pessoa:
     def classificacaoIMC(self):
         resultadoIMC = self.calcular_IMC()
 
-        if(resultadoIMC <= 18.50):
+        if resultadoIMC < 18.5:
             return 'Abaixo do peso'
-        elif(resultadoIMC > 18.50 and resultadoIMC <= 24.90):
+        elif 18.5 <= resultadoIMC <= 24.9:
             return 'Peso normal'
-        elif(resultadoIMC > 25 and resultadoIMC <= 29.0):
+        elif 25 <= resultadoIMC <= 29.9:
             return 'Sobrepeso'
         else:
             return 'Obesidade'
