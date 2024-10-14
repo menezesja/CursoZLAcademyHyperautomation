@@ -1,4 +1,3 @@
-# Classe Livro
 class Livro:
     def __init__(self, titulo, autor):
         self.titulo = titulo
@@ -23,47 +22,44 @@ class Livro:
         status = "Disponível" if self.disponivel else "Indisponível"
         print(f'Título: {self.titulo}, Autor: {self.autor}, Status: {status}')
 
-class Livraria:
+class Biblioteca:
     def __init__(self):
         self.livros = []
 
     def adicionar_livro(self, livro):
         self.livros.append(livro)
-        print(f'O livro "{livro.titulo}" foi adicionado à livraria.')
+        print(f'O livro "{livro.titulo}" foi adicionado à biblioteca.')
 
     def emprestar_livro(self, titulo):
         for livro in self.livros:
             if livro.titulo == titulo:
                 livro.emprestar()
                 return
-        print(f'O livro "{titulo}" não foi encontrado na livraria.')
-
-    def mostrar_inventario(self):
-        print("Inventário da Livraria:")
-        for livro in self.livros:
-            livro.mostrar_info()
+        print(f'O livro "{titulo}" não foi encontrado na biblioteca.')
 
     def devolver_livro(self, titulo):
         for livro in self.livros:
             if livro.titulo == titulo:
                 livro.devolver()
                 return
-        print(f'O livro "{titulo}" não foi encontrado na livraria.')
-                
+        print(f'O livro "{titulo}" não foi encontrado na biblioteca.')
 
+    def mostrar_inventario(self):
+        print("Inventário da Biblioteca:")
+        for livro in self.livros:
+            livro.mostrar_info()
 
-livro1 = Livro("Python para Iniciantes", "Autor A")
-livro2 = Livro("Automação com Python", "Autor B")
+livro1 = Livro("Python para Iniciantes", "Autor Maria")
+livro2 = Livro("Automação com Python", "Autor João")
 
-livraria = Livraria()
-livraria.adicionar_livro(livro1)
-livraria.adicionar_livro(livro2)
+biblioteca = Biblioteca()
+biblioteca.adicionar_livro(livro1)
+biblioteca.adicionar_livro(livro2)
 
-livraria.mostrar_inventario()
+biblioteca.mostrar_inventario()
 
-livraria.emprestar_livro("Python para Iniciantes")
-livraria.mostrar_inventario()
+biblioteca.emprestar_livro("Python para Iniciantes")
+biblioteca.mostrar_inventario()
 
-livraria.emprestar_livro("Python para Iniciantes")
-livraria.devolver_livro("Python para Iniciantes")
-livraria.mostrar_inventario()
+biblioteca.devolver_livro("Python para Iniciantes")
+biblioteca.mostrar_inventario()
