@@ -48,6 +48,7 @@ class Biblioteca:
         print("Inventário da Biblioteca:")
         for livro in self.livros:
             livro.mostrar_info()
+        print('-' * 40)
 
 livro1 = Livro("Python para Iniciantes", "Autor Maria")
 livro2 = Livro("Automação com Python", "Autor João")
