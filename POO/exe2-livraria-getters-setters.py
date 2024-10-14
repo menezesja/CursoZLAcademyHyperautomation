@@ -1,28 +1,28 @@
 class Livro:
     def __init__(self, titulo, autor):
-        self._titulo = titulo
-        self._autor = autor
+        self.__titulo = titulo
+        self.__autor = autor
         self.disponivel = True  
 
     # Getter para o título
     @property
     def titulo(self):
-        return self._titulo
+        return self.__titulo
 
     # Setter para o título
     @titulo.setter
     def titulo(self, titulo):
-        self._titulo = titulo
+        self.__titulo = titulo
 
     # Getter para o autor
     @property
     def autor(self):
-        return self._autor
+        return self.__autor
 
     # Setter para o autor
     @autor.setter
     def autor(self, autor):
-        self._autor = autor
+        self.__autor = autor
 
     def emprestar(self):
         if self.disponivel:
