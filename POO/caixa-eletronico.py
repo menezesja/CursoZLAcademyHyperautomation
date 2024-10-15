@@ -85,7 +85,7 @@ class Movimentacao:
     # Método para logar a operação
     def log_operacao(self, tipo, valor):
         print(f"Movimentação ID: {self.id} \nOperação: {tipo.capitalize()} \nValor: R${valor:.2f} \nData e Hora: {self.data_hora.strftime('%d/%m/%Y %H:%M:%S')} \nCliente: {self.cliente.nome} \nConta: {self.conta.numero}\n")
-        print('-'*110)
+        print('\n')
 
 cliente1 = Cliente("12345678900", "João Silva")
 cliente2 = Cliente("98765432100", "Maria Souza")
