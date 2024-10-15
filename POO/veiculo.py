@@ -7,9 +7,17 @@ class Veiculo:
     def marca(self):
         return self.__marca
     
+    @marca.setter
+    def marca(self, marca):
+        self.__marca = marca
+    
     @property
     def modelo(self):
         return self.__modelo
+    
+    @marca.setter
+    def modelo(self, modelo):
+        self.__modelo = modelo
     
     def informacoes(self):
         print(f'A marca é: {self.marca}')
@@ -17,12 +25,16 @@ class Veiculo:
 
 class Carro(Veiculo):
     def __init__(self, marca, modelo, numero_portas):
-        super().__init__(marca, modelo)  
+        Veiculo.__init__(self, marca, modelo)  
         self.__numero_portas = numero_portas
 
     @property
     def numero_portas(self):
         return self.__numero_portas
+    
+    @numero_portas.setter
+    def numero_portas(self, numero_portas)
+        self.__numero_portas = numero_portas
     
     def informacao_completa(self):
         print('Informações do carro')
@@ -32,7 +44,7 @@ class Carro(Veiculo):
 
 class Caminhao(Veiculo):
     def __init__(self, marca, modelo, carga):
-        super().__init__(marca, modelo)  
+        Veiculo.__init__(self, marca, modelo)    
         self.__carga = carga
 
     @property
@@ -42,12 +54,12 @@ class Caminhao(Veiculo):
     def informacao_completa(self):
         print('Informações do carro')
         self.informacoes()  
-        print(f'Quantidade da carga: {self.carga} kg')
+        print(f'Capacidade da carga: {self.carga} kg')
         print('-' * 40)
 
 class Moto(Veiculo):
     def __init__(self, marca, modelo, cilindrada):
-        super().__init__(marca, modelo)  
+        Veiculo.__init__(self, marca, modelo)   
         self.__cilindrada = cilindrada
 
     @property
@@ -57,7 +69,7 @@ class Moto(Veiculo):
     def informacao_completa(self):
         print('Informações do carro')
         self.informacoes()  
-        print(f'Cilindrada: {self.cilindrada} cc')
+        print(f'Cilindradas: {self.cilindrada} cc')
         print('-' * 40)
 
 carro = Carro('Chevrolet', 'Onix', 4)
