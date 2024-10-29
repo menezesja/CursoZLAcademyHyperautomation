@@ -11,7 +11,8 @@ class Veiculo(ABC):
     @abstractmethod
     def calcular_custo_viagem(self, distancia):
         pass
-
+    
+    @abstractmethod
     def obter_informacoes(self):
         pass
 
